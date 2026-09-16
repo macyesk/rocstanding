@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Standing · BYU attendance prototype</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main id="app">
+    <section id="standing" class="screen" aria-labelledby="landing-title">
+      <header class="hero">
+        <h1 id="landing-title" tabindex="-1">Earned it. <span>Know where you stand.</span></h1>
+        <div class="identity"><span class="wordmark">BYU <span>/</span> MY STANDING</span><span class="demo-label">Interactive prototype · Sample data</span></div>
+      </header>
+      <div class="overview">
+        <section class="count-card" aria-label="Your attendance">
+          <p class="eyebrow">YOUR ATTENDANCE</p>
+          <p class="big-count"><span data-count>6</span><span>events attended</span></p>
+          <p class="count-note">Your place in the picture starts here.</p>
+          <button class="primary card-navigation" data-nav="checkin">Check In <span aria-hidden="true">→</span></button>
+
+        </section>
+        <section class="chart-card">
+          <div class="card-heading"><div><p class="eyebrow">THE STUDENT BODY</p><h2>Where you stand.</h2></div></div>
+          <div id="standing-summary" class="standing-summary" aria-label="Your attendance compared with other students"></div>
+          <div class="card-footer"><span><strong data-total></strong> sample students, including you</span></div>
+          <button class="primary card-navigation" data-nav="distribution">View Full Distribution <span aria-hidden="true">→</span></button>
+        </section>
+      </div>
+      <p class="footnote">A clearer picture, your own judgment. The ticket cutoff isn’t public.</p>
+    </section>
+
+    <section id="checkin" class="screen" aria-labelledby="checkin-title" hidden>
+      <header class="page-header"><button class="secondary home-button" data-nav="standing"><span aria-hidden="true">←</span> Home · My Standing</button><span class="wordmark">BYU <span>/</span> MY STANDING</span></header>
+      <div class="page-title"><p class="eyebrow">CHECK IN</p><h1 id="checkin-title" tabindex="-1">Check in to an event.</h1><p>Choose the event you attended, then confirm to add it to your count.</p><span class="demo-label">Fictional events · September 16, 2026</span></div>
+      <div class="checkin-layout">
+        <form id="checkin-form" class="event-card">
+          <fieldset><legend>Which event did you attend?</legend><div id="event-list"></div></fieldset>
+          <div class="confirm-area"><p id="selection-help">Select an event to enable check-in.</p><button id="confirm" class="primary" type="submit" disabled>Confirm check-in <span aria-hidden="true">→</span></button></div>
+        </form>
+        <section class="chart-card standing-preview" aria-labelledby="preview-title"><p class="eyebrow">YOUR ATTENDANCE</p><h2 id="preview-title">Ready for your next check-in.</h2><p class="preview-count"><span data-count>6</span> <span>events attended</span></p><p id="checkin-status" role="status" aria-live="polite">Confirm an event to add one to your attendance.</p><button class="secondary return-standing" data-nav="standing">View My Standing <span aria-hidden="true">→</span></button></section>
+      </div>
+      <p class="footnote">Practice check-ins only. This prototype does not record official BYU attendance.</p>
+    </section>
+
+    <section id="distribution" class="screen" aria-labelledby="distribution-title" hidden>
+      <header class="page-header"><button class="secondary home-button" data-nav="standing"><span aria-hidden="true">←</span> Home · My Standing</button><span class="wordmark">BYU <span>/</span> MY STANDING</span></header>
+      <div class="page-title"><p class="eyebrow">FULL DISTRIBUTION</p><h1 id="distribution-title" tabindex="-1">The whole picture.</h1><p>More events above you. Fewer events below you. Bar length shows how many students are at each count.</p></div>
+      <section class="chart-card full-card"><div class="card-heading"><div><h2>Attendance across the student body</h2><p class="chart-intro"><span data-total></span> sample students · Every attendance level shown</p></div><span class="position-pill">You: <span data-count>6</span> events</span></div><div id="full-chart" class="chart full"></div><div class="distribution-summary" id="distribution-summary"></div></section>
+      <p class="footnote">Sample data, not official standings. The ticket cutoff isn’t public; this chart shows attendance only.</p>
+    </section>
+  </main>
+</body>
+</html>
